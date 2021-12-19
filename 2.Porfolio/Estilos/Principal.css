@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(198, 240, 198);
+}
+#contenedor {
+    width: 99%;
+    margin: 0 auto;
+}
+#header{
+    background-color:green;
+    display:flex ;
+    flex-direction: row;
+    justify-content:flex-start; 
+    align-items: center;
+}
+#headerizquierdo{
+    flex: 1 1 34%;
+}
+#headercentro{
+    flex: 0 0 33%;
+    text-align: center;
+    font-size: x-large;
+    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#headerderecho{
+    flex: 0 0 33%;
+    text-align: center;
+}
