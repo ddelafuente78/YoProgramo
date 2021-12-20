@@ -3,7 +3,9 @@ window.addEventListener('load',inicializarEventos,false);
 function inicializarEventos(e)
 {
     var ob=document.createElement('div');
-    ob.innerHTML="<a class=»linkedin-profileinsider-inline» href='http://es.linkedin.com/in/diego-de-la-fuente-35b07089'> <img src='imagenes/logolinkedin.jpg' alt='in' height='20px' width='20px'></a>";
+    ob.innerHTML="<a target='_blank' class='linkedin-profileinsider-inline' href='http://es.linkedin.com/in/diego-de-la-fuente-35b07089'> <img src='imagenes/logolinkedin.png' alt='in' height='20px' width='20px'></a>";
+    ob.innerHTML= ob.innerHTML + "&nbsp;<a target='_blank' href='https://www.instagram.com/delafuente.d/'><img src='imagenes/logoinstagram.png' alt='in' height='20px' width='20px'></a>";
+    ob.innerHTML= ob.innerHTML + "&nbsp;<a target='_blank' href='https://www.facebook.com/diego.delafuente.169'><img src='imagenes/logofacebook.png' alt='in' height='20px' width='20px'></a>";
     ob.style.left='5px'
     ob.style.top='0px';
     ob.style.width='100px';
@@ -11,7 +13,10 @@ function inicializarEventos(e)
     ob.style.background='#A1D2CE';
     ob.style.position='absolute';
     ob.style.cursor="move";
-    ob.style.zIndex="100";
+    ob.style.border = "1px solid black";
+    ob.style.borderRadius="25px";
+    ob.style.paddingLeft = "10px";
+    ob.style.zIndex = "20";
     var x=document.getElementsByTagName('body');
     x[0].appendChild(ob);
     var recu1=new Recuadro(ob);
