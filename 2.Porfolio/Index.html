@@ -4,40 +4,54 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         
-        <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <!-- Mi CSS -->
         <link rel="stylesheet" href="Estilos/Principal.css" type="text/css">
         
         <title>
             #YoPrgramo - Diego De La Fuente
         </title>
 
-        <!-- Mi JS -->
         <script type="text/javascript" src="MiScript/BarraSociales.js"></script>
         <script type="text/javascript" src="http://www.linkedin.com/js/public-profile/widget-os.js"></script>
 
     </head>
     <body>
-        <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
             crossorigin= "anonymous">
         </script>
+        <!--Uso de Typescript + CSS + Bootstrap-->
         <div id="miModal" class="modalContainer">
             <div class="modal-content">
-                <span class="close">x</span> <h2>Login...</h2>
-                <p>
-                    <input type="text" value="Usuario"><br>
-                    <input type="password">
-                    <input type="button" value=">>"><br>    
-                </p> 
+                <span class="close">x</span> 
+                <h2>Ingresar</h2>
+                <div class="container-fluid">
+                    <div class="mb-2">
+                        <div class="auto">
+                            <input class="form-control" type="text" placeholder="Usuario...">
+                        </div>
+                    </div>
+                    <div class="row">    
+                        <div class="auto">
+                            <label for="inputPassword" class="visually-hidden">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password...">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-success">Confirmar credenciales</button>
+                        </div>   
+                    </div>
+                </div> 
             </div>
         </div> 
+        <!--Uso de CSS-->
         <div id="foto">
             <img src="imagenes/foto.jpg" class="imgRedonda">
         </div>
+        <!--Uso de Bootstrap-->
         <div class="container">
             <div id="header">
                 <div id="headerizquierdo">
@@ -48,12 +62,14 @@
                     #YoProgramo
                 </div>
                 <div id="headerderecho">
+                    <!--Uso de JavaScript-->
                     <button id="btnLogin"> Login para editar</button>
                 </div>
             </div> 
             <div class="row" id="headerbanner">
-                <img src="/imagenes/banner.webp" alt="Diego De La Fuente Profile" width="100%" height="500px">
+                <img src="/imagenes/banner.webp" class ="img-fluid" alt="Diego De La Fuente Profile" width="100%" height="500px">
             </div>
+            
             <div class="row">
                 Acerca de...
             </div>

@@ -22,14 +22,13 @@ function inicializarEventos(e)
     var recu1=new Recuadro(ob);
 }
 
-Recuadro=function(div) {
+Recuadro = function(div) {
     var tX=0;
     var tY=0;
     var difX=0;
     var difY=0;
     
-    div.addEventListener('mousedown',inicioDrag,false);
-
+    div.addEventListener('mousedown', inicioDrag, false);
 
     function coordenadaX(e){
         return e.pageX;
@@ -51,8 +50,8 @@ Recuadro=function(div) {
     }
     
     function drag(e){ 
-        tX=coordenadaY(e)+difY+'px';
-        tY=coordenadaX(e)+difX+'px'
+        tX=coordenadaY(e) + difY + 'px';
+        tY=coordenadaX(e) + difX + 'px';
         div.style.top=tX; 
         div.style.left=tY;
     }

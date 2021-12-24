@@ -4,6 +4,7 @@ const v_span = document.getElementsByClassName("close")[0] as HTMLSpanElement;
 const v_body = document.getElementsByTagName("body")[0] as HTMLBodyElement;
 
 btnModal.onclick = function() {
+
     miModal.style.display = "block";
 
     v_body.style.position = "static";
@@ -12,6 +13,7 @@ btnModal.onclick = function() {
 }
 
 v_span.onclick = function() {
+
     miModal.style.display = "none";
 
     v_body.style.position = "inherit";
@@ -20,6 +22,7 @@ v_span.onclick = function() {
 }
 
 window.onclick = function(event) {
+
     if (event.target == miModal) {
         miModal.style.display = "none";
 
