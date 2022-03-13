@@ -7,11 +7,11 @@ function inicializarEventos(e)
     ob.innerHTML= ob.innerHTML + "&nbsp;<a target='_blank' href='https://www.instagram.com/delafuente.d/'><img src='imagenes/logoinstagram.png' alt='in' height='20px' width='20px'></a>";
     ob.innerHTML= ob.innerHTML + "&nbsp;<a target='_blank' href='https://www.facebook.com/diego.delafuente.169'><img src='imagenes/logofacebook.png' alt='in' height='20px' width='20px'></a>";
     ob.style.left='5px'
-    ob.style.top='0px';
+    ob.style.top='5px';
     ob.style.width='100px';
     ob.style.height='30px';
     ob.style.background='#A1D2CE';
-    ob.style.position='absolute';
+    ob.style.position='fixed';
     ob.style.cursor="move";
     ob.style.border = "1px solid black";
     ob.style.borderRadius="25px";

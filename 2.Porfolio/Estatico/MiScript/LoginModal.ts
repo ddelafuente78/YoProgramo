@@ -21,7 +21,7 @@ v_span.onclick = function() {
     v_body.style.overflow = "visible";
 }
 
-window.onclick = function(event) {
+window.onclick = function(event: Event) {
 
     if (event.target == miModal) {
         miModal.style.display = "none";
