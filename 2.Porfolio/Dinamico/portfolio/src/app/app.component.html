@@ -1,14 +1,14 @@
+{{modo}}
 <app-barrasociales></app-barrasociales>
 <div class="container">
-  <app-header></app-header>
-  <app-acercade></app-acercade>
+  <app-header (modoext)="actualizar($event)"></app-header>
   <hr>
-  <app-experiencias></app-experiencias>
+  <app-experiencias [exp_modo]="modo"></app-experiencias>
   <hr>
-  <app-educacion></app-educacion>
+  <app-educacion [educ_modo]="modo"></app-educacion>
   <hr>
-  <app-skills></app-skills>
+  <app-skills [skill_modo]="modo"></app-skills>
   <hr>
-  <app-proyectos></app-proyectos>
+  <app-proyectos [proy_modo]="modo"></app-proyectos>
   <hr> 
 </div>

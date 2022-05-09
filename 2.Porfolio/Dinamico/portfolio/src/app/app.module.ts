@@ -4,11 +4,11 @@ import { NgChartsModule } from 'ng2-charts';
 
 //Servicios
 import {CargarscriptService} from './Servicios/cargarscript.service';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
-import { AcercadeComponent } from './componentes/acercade/acercade.component';
 import { ExperienciasComponent } from './componentes/experiencias/experiencias.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { SkillsComponent } from './componentes/skills/skills.component';
@@ -20,7 +20,6 @@ import { BarrasocialesComponent } from './componentes/barrasociales/barrasociale
   declarations: [
     AppComponent,
     HeaderComponent,
-    AcercadeComponent,
     ExperienciasComponent,
     EducacionComponent,
     SkillsComponent,
@@ -31,7 +30,8 @@ import { BarrasocialesComponent } from './componentes/barrasociales/barrasociale
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgChartsModule
+    NgChartsModule,
+    HttpClientModule
   ],
   providers: [
     CargarscriptService

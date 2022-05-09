@@ -21,7 +21,6 @@ public doughnutChartType: ChartType = 'doughnut';
   }
 
   ngOnInit() {
-    console.log("ver:" + this.categoria)
     switch (this.categoria) {
       case "Programacion":
         this.doughnutChartLabels = [ 'Java', '.Net', 'Python' ]

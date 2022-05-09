@@ -1,3 +1,37 @@
+<div id="EducModal" class="modalContainer">
+    <div class="modal-content">
+        <span class="close" (click)="ocultarmodal()">x</span> 
+        <h2>Modificar educacion...</h2>
+        <div class="container-fluid">
+            <div class="mb-2">
+                <div class="auto">
+                    <input class="form-control" type="text" placeholder="Año desde...">
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="auto">
+                    <input class="form-control" type="text" placeholder="Año hasta...">
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="auto">
+                    <input class="form-control" type="text" placeholder="Insitucion...">
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="auto">
+                    <textarea class="form-control" type="textarea" placeholder="Detalle..." row="3"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-success" (click)="actualizarEducacion()">Actualizar...</button>
+                </div>   
+            </div>
+        </div> 
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -8,9 +42,13 @@
         <div class="col-4">
             <h5><i class="far fa-calendar-check">  Periodo:</i> año desde - año hasta</h5>
         </div>
-        <div class="col-8">
+        <div class="col-6">
             <h5 style="text-decoration:underline; font-weight: bold;"><i class="fas fa-school">  Institucion:</i></h5>
             <p>detalle educacion...</p> 
+        </div>
+        <div class="col-2" *ngIf="educ_modo=='editar'">
+            <i class="fas fa-edit fondoEditarBorrar" style="margin-right: 10px;" (click)="mostrarmodal()">editar</i>
+            <i class="fas fa-eraser fondoEditarBorrar" (click)="borrarEducacion()">borrar</i>
         </div>
     </div>
 </div>
