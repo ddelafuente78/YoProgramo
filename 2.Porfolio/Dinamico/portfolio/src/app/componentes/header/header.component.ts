@@ -19,8 +19,9 @@ export class HeaderComponent implements OnInit {
   constructor(private personaService: PersonaService) { }
 
   ngOnInit(): void {
-   // this.personaService.getPersonas().subscribe(personas => 
-    //  this.persona = personas);
+    this.personaService.getPersonas().subscribe(personas => 
+      this.persona = personas);
+      console.log(this.persona)
   }
 
 

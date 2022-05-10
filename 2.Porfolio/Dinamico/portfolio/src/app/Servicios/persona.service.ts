@@ -15,7 +15,7 @@ const httpOptions = {
 
 export class PersonaService {
   
-  private apiURL = 'http://localhost:8080/persona'
+  private apiURL = 'http://localhost:8080/api/v1.0/persona'
 
   constructor(private http: HttpClient) {} 
     
