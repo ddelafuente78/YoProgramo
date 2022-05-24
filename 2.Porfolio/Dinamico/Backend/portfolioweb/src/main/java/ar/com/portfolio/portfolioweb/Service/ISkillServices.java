@@ -6,11 +6,15 @@ import java.util.List;
 
 public interface ISkillServices {
 
-    public List<Skill> getSkills();
+    List<Skill> getSkills();
 
-    public void guardarSkill(Skill skill);
+    void guardarSkill(Skill skill);
 
-    public void borrarSkill(Long id);
+    void borrarSkill(Long id);
 
-    public Skill encontrarSkill(Long id);
+    Skill encontrarSkill(Long id);
+
+    List<Skill> traerSkillXCategorias(Boolean isSoft);
+
+    List<Skill> traerCategoriaxTipo(Boolean isSoft, String categoria);
 }

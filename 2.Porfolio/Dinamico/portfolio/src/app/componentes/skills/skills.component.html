@@ -1,44 +1,128 @@
-{{skill_modo}}
-<div class="container">
+<div id="SkillModal" class="modalContainer">
+    <div class="modal-content">
+      <span class="close" (click)="ocultarmodal()">x</span> 
+      <h2>Mantenimiento de Skills...</h2>
+      <div *ngIf="opeAct">
+            <table border="0px">
+            <tr>
+                <th>(Sel)</th><th>Categoria</th><th>Nombre</th><th>Porcentaje</th><th>Soft Skill?</th>
+            </tr>
+            <tr *ngFor="let s of totalskills">
+                <td style="padding: 10px">
+                    <input type="Radio" value="{{s.id}}" name="seleccion" (change)="Seleccionar(s.id)"/> 
+                    <!--{{s.id}}-->
+                </td>
+                <td>
+                    <input class="form-control" id="cat{{s.id}}" type="text" placeholder="Categoria..."
+                    value="{{s.categoria}}">
+                </td>
+                <td>
+                    <input class="form-control" id="nom{{s.id}}" type="text" placeholder="Nombre..."
+                    value="{{s.nombre}}">
+                </td>
+                <td>
+                    <input class="form-control" id="por{{s.id}}" type="text" placeholder="Porcentaje..."
+                    value="{{s.porcentaje}}">
+                </td>
+                <td>
+                    <input type="checkbox" id="ski{{s.id}}" [checked]="s.isSoftSkill">
+                </td>    
+            </tr>
+            </table>
+            <input style="margin-left: 5%;" type="button" class="btn" value="actualizar..." (click)="actualizar()"> 
+        </div>
+        <div *ngIf="!opeAct">
+            <table border="0px">
+            <tr>
+                <th>id</th><th>Categoria</th><th>Nombre</th><th>Porcentaje</th><th>Soft Skill?</th>
+            </tr>
+            <tr *ngFor="let s of totalskills">
+                <td style="padding: 10px">
+                    <input type="Radio" value="{{s.id}}" name="seleccion" (change)="Seleccionar(s.id)"/>
+                    <!-- {{s.id}} -->
+                </td>
+                <td>
+                    <label class="form-control" type="text" placeholder="Categoria...">{{s.categoria}}</label>
+                </td>
+                <td>
+                    <label class="form-control" type="text" placeholder="Nombre...">{{s.nombre}}</label>
+                </td>
+                <td>
+                    <label class="form-control" type="text" placeholder="Porcentaje...">{{s.porcentaje}}"</label>
+                </td>
+                <td>
+                    <input type="checkbox" [checked]="s.isSoftSkill" disabled>
+                </td>    
+            </tr>
+            </table>
+            <input style="margin-left: 5%;" type="button" class="btn" value="borrar..." (click)="borrar()">
+        </div>
+    </div>
+  </div>
+<div class="Container-fluid">
     <div class="row">
         <div class="col-12">
-            <h4 class="tituloSeccion">Soft and Hard skill:</h4>
+            <h4 class="tituloSeccion animated bounceInRight">Soft and Hard skill:
+                <i *ngIf="skill_modo=='editar'" class="fas fa-pen" style="padding-left: 75%; cursor:pointer;" (click)="divcreacion()">
+                    Nuevo:
+                <mat-slide-toggle style="margin-left: 5px;"></mat-slide-toggle>
+                </i>
+                <span *ngIf="skill_modo=='editar'">
+                    <i class="fas fa-edit" style="cursor: pointer; margin-left: 10px;" (click)="mostrarmodal(true)"></i>
+                    <i class="fas fa-eraser" style="cursor: pointer" (click)="mostrarmodal(false)"></i>
+                </span>   
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" *ngIf="skill_modo=='editar'">
+            <app-addskill
+                (onCreateSkill)="crearskill($event)" 
+                *ngIf="modocreacion">
+            </app-addskill>
         </div>
     </div>
     <hr>
-    <div class="row">
+    <div class="row animated hinge">
         <div class="col-12">
-            <h4><i class="fas fa-code"></i>  Hard skill:</h4>
+            <h1><i class="fas fa-code"></i> Hard skills:</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
-            <h5><span class="recuadro">Programacion</span></h5>
-            <app-donutchart categoria="Programacion"></app-donutchart>
-        </div>
-        <div class="col-4">
-            <h5><span class="recuadro">Base de datos</span></h5>
-            <app-donutchart categoria="Bases"></app-donutchart>
-        </div>
-        <div class="col-4">
-            <h5><span class="recuadro">Web</span></h5>
-            <app-donutchart categoria="Web"></app-donutchart>
-        </div>
+        <mat-grid-list cols="3" gutterSize="10px">
+            <mat-grid-tile *ngFor="let hc of individualHardCat">
+                <app-donutchart
+                    #skill  
+                    donut_modo="{{skill_modo}}" 
+                    [entryskills]="hardcat" 
+                    [isSoft]="false" 
+                    categoria="{{hc}}" 
+                    [labels]="getlabelForHardCategories(hc)" 
+                    [datos]="getDataForHardCategories(hc)"
+                >
+                </app-donutchart>
+            </mat-grid-tile>
+        </mat-grid-list>
     </div>
     <hr>
-    <div class="row">
+    <div class="row animated hinge">
         <div class="col-12">
-            <h4><i class="far fa-user-circle"></i>  Soft skill:</h4>
+            <h1><i class="far fa-user-circle"></i>  Soft skill:</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
-            <h5><span class="recuadro">Idioma</span></h5>
-            <app-donutchart categoria="Idioma"></app-donutchart>
-        </div>
-        <div class="col-4">
-            <h5><span class="recuadro">Otros</span></h5>
-            <app-donutchart categoria="Comunicacion"></app-donutchart>
-        </div>
+        <mat-grid-list cols="3" gutterSize="10px">
+            <mat-grid-tile *ngFor="let sc of individualSoftCat">             
+                <app-donutchart
+                    #skill 
+                    donut_modo="{{skill_modo}}" 
+                    [entryskills]="getSoftCat()" 
+                    [isSoft]="true"  categoria="{{sc}}" 
+                    [labels]="getlabelForSoftCategories(sc)" 
+                    [datos]="getDataForSoftCategories(sc)"
+                >
+                </app-donutchart>
+            </mat-grid-tile>
+        </mat-grid-list>
     </div>
 </div>

@@ -1,6 +1,7 @@
 package ar.com.portfolio.portfolioweb.Controller;
 
 import ar.com.portfolio.portfolioweb.Model.Educacion;
+import ar.com.portfolio.portfolioweb.Model.Experiencia;
 import ar.com.portfolio.portfolioweb.Model.Persona;
 import ar.com.portfolio.portfolioweb.Service.IEducacionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin(origins = "*")
 public class EducacionController {
 
     @Autowired
@@ -19,16 +21,21 @@ public class EducacionController {
     public List<Educacion> getEducaciones(){
         return interEducacion.getEducaciones();}
 
+    @GetMapping("/educacion/encontrar/{id}")
+    public Educacion getEducacion(@PathVariable Long id){
+        return interEducacion.encontrarEducacion(id);
+    }
+
     @PostMapping("/educacion/crear")
     public String createEducacion(@RequestBody Educacion educ){
         interEducacion.guardarEducacion(educ);
-        return "Se creo la educacion";
+        return "{\"rpta\":\"Se creo la educacion\"}";
     }
 
     @DeleteMapping("/educacion/borrar/{id}")
     public String deleteEducacion(@PathVariable Long id){
         interEducacion.borrarEducacion(id);
-        return "Se borro la educacion";
+        return "{\"rpta\":\"Se borro la educacion\"}";
     }
 
     @PutMapping ("/educacion/editar/{id}")

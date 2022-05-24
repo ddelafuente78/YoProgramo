@@ -1,0 +1,20 @@
+<form class="add-form" (ngSubmit)=" agregarSkill()">
+    <div style="background-color:beige;" class="form-control">
+        <div>
+            skill soft?
+            <input type="checkbox" [(ngModel)]="_issoftskill" name="isSkillSoft" id="isSkillSoft"/>
+            <label for="categoria">Categoria: </label>
+            <input [(ngModel)]="_categoria" 
+                type="text" name="aniohasta" id="aniohasta"/>
+            <label for="nombre">Nombre: </label>
+            <input [(ngModel)]="_nombre" 
+                type="text" name="nombre" id="nombre"/>
+            <label for="porcentaje">Porcentaje: </label>
+            <input [(ngModel)]="_porcentaje" 
+                type="text" name="porcentaje" id="porcentaje"/>
+            
+            <input style="margin-left: 15%;" type="submit" class="btn" value="guardar">
+        </div>
+    </div>
+</form>
+

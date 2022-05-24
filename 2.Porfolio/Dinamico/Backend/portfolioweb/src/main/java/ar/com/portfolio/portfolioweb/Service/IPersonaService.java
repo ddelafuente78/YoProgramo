@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IPersonaService {
 
-    public List<Persona> getPersonas();
+    List<Persona> getPersonas();
 
-    public void guardarPersona(Persona pers);
+    void guardarPersona(Persona pers);
 
-    public void borrarPersona(Long id);
+    void borrarPersona(Long id);
 
-    public Persona encontrarPersona(Long id);
+    Persona encontrarPersona(Long id);
 }

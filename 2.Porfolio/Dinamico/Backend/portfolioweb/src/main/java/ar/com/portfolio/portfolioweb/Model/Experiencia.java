@@ -1,6 +1,5 @@
 package ar.com.portfolio.portfolioweb.Model;
 
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,7 @@ public class Experiencia {
     private Long id;
     private int aniodesde;
     private int aniohasta;
-    private String nombreEmpresa;
+    private String empresa;
     private String detalle;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

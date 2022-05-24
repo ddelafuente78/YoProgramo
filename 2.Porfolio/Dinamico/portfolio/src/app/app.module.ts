@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgChartsModule } from 'ng2-charts';
+import { FormsModule } from '@angular/forms';
 
 //Servicios
 import {CargarscriptService} from './Servicios/cargarscript.service';
@@ -15,6 +16,15 @@ import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { DonutchartComponent } from './componentes/donutchart/donutchart.component';
 import { BarrasocialesComponent } from './componentes/barrasociales/barrasociales.component';
+import { AddExperienciaComponent } from './componentes/add-experiencia/add-experiencia.component';
+import { AddEducacionComponent } from './componentes/add-educacion/add-educacion.component';
+import { AddProyectoComponent } from './componentes/add-proyecto/add-proyecto.component';
+import { AddskillComponent } from './componentes/addskill/addskill.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatGridListModule} from '@angular/material/grid-list';
+import { LoginComponent } from './componentes/login/login.component';
+import { PrincipalComponent } from './componentes/principal/principal.component'
 
 @NgModule({
   declarations: [
@@ -26,12 +36,22 @@ import { BarrasocialesComponent } from './componentes/barrasociales/barrasociale
     ProyectosComponent,
     DonutchartComponent,
     BarrasocialesComponent,
+    AddExperienciaComponent,
+    AddEducacionComponent,
+    AddProyectoComponent,
+    AddskillComponent,
+    LoginComponent,
+    PrincipalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatGridListModule
   ],
   providers: [
     CargarscriptService

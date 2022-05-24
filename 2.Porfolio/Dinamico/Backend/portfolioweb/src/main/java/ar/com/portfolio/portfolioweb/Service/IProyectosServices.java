@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IProyectosServices {
 
-    public List<Proyectos> getProyectos();
+    List<Proyectos> getProyectos();
 
-    public void guardarProyecto(Proyectos proy);
+    void guardarProyecto(Proyectos proy);
 
-    public void borrarProyecto(Long id);
+    void borrarProyecto(Long id);
 
-    public Proyectos encontrarProyecto(Long id);
+    Proyectos encontrarProyecto(Long id);
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin(origins = "*")
 public class PersonaController {
 
     @Autowired
@@ -21,14 +22,17 @@ public class PersonaController {
 
     @PostMapping("/persona/crear")
     public String createPersona(@RequestBody Persona pers){
-        interPersona.guardarPersona(pers);
-        return "Se creo la persona";
+        if(getPersonas().size() == 0 ) {
+            interPersona.guardarPersona(pers);
+            return "{\"rpta\":\"Se creo la persona\"}";
+        }
+        return "{\"rpta\":\"En esta version de MVP solo puede haber un perfil\"}";
     }
 
     @DeleteMapping ("/persona/borrar/{id}")
     public String deletePersona(@PathVariable Long id){
         interPersona.borrarPersona(id);
-        return "Se borro la persona";
+        return "{\"rpta\":\"Se borro la persona\"}";
     }
 
     @PutMapping ("/persona/editar/{id}")
@@ -48,9 +52,7 @@ public class PersonaController {
         pers.setAcercade(nuevoAcercaDe);
 
         interPersona.guardarPersona(pers);
-
         return pers;
-
     }
 
 }

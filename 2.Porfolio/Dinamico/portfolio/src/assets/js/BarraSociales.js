@@ -3,7 +3,7 @@ window.addEventListener('load',inicializarEventos,false);
 function inicializarEventos(e)
 {
     var ob=document.createElement('div');
-    ob.innerHTML= "<a target='_blank' class='linkedin-profileinsider-inline' href='http://es.linkedin.com/in/diego-de-la-fuente-35b07089'> <img src='assets/imagenes/linkedinlogo.png' alt='in' height='20px' width='20px'/></a>";
+    ob.innerHTML= "<a target='_blank' class='linkedin-profileinsider-inline' href='http://es.linkedin.com/in/diegodelafuente78'> <img src='assets/imagenes/linkedinlogo.png' alt='in' height='20px' width='20px'/></a>";
     ob.innerHTML=  ob.innerHTML + "&nbsp;<a target='_blank' href='https://www.instagram.com/delafuente.d/'><img src='assets/imagenes/logoinstagram.png' alt='ig' height='20px' width='20px'/></a>";
     ob.innerHTML= ob.innerHTML + "&nbsp;<a target='_blank' href='https://www.facebook.com/diego.delafuente.169'><img src='assets/imagenes/logofacebook.png' alt='fb' height='20px' width='20px'/></a>";
     ob.style.left='5px'

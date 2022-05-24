@@ -1,14 +1,3 @@
-{{modo}}
-<app-barrasociales></app-barrasociales>
 <div class="container">
-  <app-header (modoext)="actualizar($event)"></app-header>
-  <hr>
-  <app-experiencias [exp_modo]="modo"></app-experiencias>
-  <hr>
-  <app-educacion [educ_modo]="modo"></app-educacion>
-  <hr>
-  <app-skills [skill_modo]="modo"></app-skills>
-  <hr>
-  <app-proyectos [proy_modo]="modo"></app-proyectos>
-  <hr> 
+  <router-outlet></router-outlet> 
 </div>

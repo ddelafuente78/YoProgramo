@@ -1,0 +1,7 @@
+.recuadro{
+    border-radius: 10px;
+    border: solid 1px black;
+    padding: 5px;
+    background-color:dimgrey;
+    color:aquamarine;
+}

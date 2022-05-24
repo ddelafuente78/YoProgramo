@@ -5,11 +5,11 @@ import ar.com.portfolio.portfolioweb.Model.Educacion;
 import java.util.List;
 
 public interface IEducacionService {
-    public List<Educacion> getEducaciones();
+    List<Educacion> getEducaciones();
 
-    public void guardarEducacion(Educacion educ);
+    void guardarEducacion(Educacion educ);
 
-    public void borrarEducacion(Long id);
+    void borrarEducacion(Long id);
 
-    public Educacion encontrarEducacion(Long id);
+    Educacion encontrarEducacion(Long id);
 }

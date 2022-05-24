@@ -1,5 +1,6 @@
-import { Component, OnInit, Input} from '@angular/core';
-import { ChartData, ChartDataset, ChartType } from 'chart.js';
+import { Component, OnInit, Input, ViewChild} from '@angular/core';
+import { ChartData, ChartType } from 'chart.js';
+import { ISkill } from 'src/app/Servicios/Interfaces/ISkills';
 
 @Component({
   selector: 'app-donutchart',
@@ -9,53 +10,43 @@ import { ChartData, ChartDataset, ChartType } from 'chart.js';
 
 export class DonutchartComponent  implements OnInit{
 
+
+  @Input() donut_modo: string = "";
+  @Input() isSoft: boolean = false;
   @Input() categoria: string = "";
+  @Input() labels: string[] = [];
+  @Input() datos: number[]= [];
+  @Input() entryskills: ISkill[]=[]; 
   
-  datos: number[]= []; 
+  _issoftskill: boolean=false;
+  _categoria: string="";
+  _nombre: string="";
+  _porcentaje: number=0;
+  
+  
   // Doughnut
 public doughnutChartLabels: string[] = [];
 public doughnutChartData: ChartData<'doughnut'> = {datasets: []};
 public doughnutChartType: ChartType = 'doughnut';
+public skills: ISkill[]=[];
 
   constructor() { 
   }
 
+  
   ngOnInit() {
-    switch (this.categoria) {
-      case "Programacion":
-        this.doughnutChartLabels = [ 'Java', '.Net', 'Python' ]
-        this.datos = [40,40,20] 
-        this.doughnutChartData.labels=this.doughnutChartLabels;
-        this.doughnutChartData.datasets = [{ data: this.datos }];
-        break;
-        case "Bases":
-          this.doughnutChartLabels = [ 'Mysql', 'SqlServer', 'MongoDB' ]
-          this.doughnutChartData.labels=this.doughnutChartLabels;
-          this.datos = [40 ,50, 10] 
-          this.doughnutChartData.datasets = [{ data: this.datos }];
-          break;
-      case "Web":
-        this.doughnutChartLabels = [ 'JavaScript', 'HTML', 'CSS' ]
-        this.doughnutChartData.labels=this.doughnutChartLabels;
-        this.datos = [33 ,33, 33] 
-        this.doughnutChartData.datasets = [{ data: this.datos }];
-        break;
-      case "Idioma":
-        this.doughnutChartLabels = [ 'Ingles', 'Castellano']
-        this.doughnutChartData.labels=this.doughnutChartLabels;
-        this.datos = [15 ,85] 
-        this.doughnutChartData.datasets = [{ data: this.datos }];
-        break;
-      case "Comunicacion":
-        this.doughnutChartLabels = [ 'Oratoria', 'Pedagogia']
-        this.doughnutChartData.labels=this.doughnutChartLabels;
-        this.datos = [50 ,50] 
-        this.doughnutChartData.datasets = [{ data: this.datos }];
-        break;
-      default:
-        break;
-    }
+    this.doughnutChartLabels = this.labels
+    this.doughnutChartData.labels=this.doughnutChartLabels;
+    this.doughnutChartData.datasets = [{ data: this.datos }];
+    this.skills = this.entryskills;
   }
+
+refreshChart(){
+  window.location.reload();
+  /*this.datos.push(1);
+  setTimeout(()=> {this.datos.pop();},1)
+  */
+}
 
 // events
 public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

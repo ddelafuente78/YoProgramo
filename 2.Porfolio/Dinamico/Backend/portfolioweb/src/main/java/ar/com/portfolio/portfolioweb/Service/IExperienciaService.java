@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IExperienciaService {
 
-    public List<Experiencia> getExperiencias();
+    List<Experiencia> getExperiencias();
 
-    public void guardarExperiencia(Experiencia exp);
+    void guardarExperiencia(Experiencia exp);
 
-    public void borrarExperciencia(Long id);
+    void borrarExperciencia(Long id);
 
-    public Experiencia encontrarExperiencia(Long id);
+    Experiencia encontrarExperiencia(Long id);
 }

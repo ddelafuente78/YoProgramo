@@ -1,0 +1,14 @@
+<app-barrasociales></app-barrasociales>
+<app-header 
+    (modoext)="actualizar($event)"
+    (idPersona)="setIdPersona($event)"
+  ></app-header>
+  <hr>
+  <app-experiencias [exp_modo]="modo" [idPersona]="idPersona"></app-experiencias>
+  <hr>
+  <app-educacion [educ_modo]="modo"></app-educacion>
+  <hr>
+  <app-skills [skill_modo]="modo"></app-skills>
+  <hr>
+  <app-proyectos [pry_modo]="modo"></app-proyectos>
+  <hr>

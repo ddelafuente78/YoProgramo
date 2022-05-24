@@ -11,7 +11,7 @@ public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private boolean isSoftSkill;
+    private Boolean isSoftSkill;
     private String categoria;
     private String nombre;
     private int porcentaje;

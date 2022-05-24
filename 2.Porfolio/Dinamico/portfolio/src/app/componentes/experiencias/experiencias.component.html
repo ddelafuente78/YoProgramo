@@ -1,26 +1,29 @@
 <div id="ExpModal" class="modalContainer">
     <div class="modal-content">
         <span class="close" (click)="ocultarmodal()">x</span> 
-        <h2>Modificar experiencia...</h2>
+        <h2>Modificar experiencia...( {{_idexp}} )</h2>
         <div class="container-fluid">
             <div class="mb-2">
                 <div class="auto">
-                    <input class="form-control" type="text" placeholder="Año desde...">
+                    <input class="form-control" type="text" placeholder="Año desde..."
+                    [(ngModel)]="_aniodesde">
                 </div>
             </div>
             <div class="mb-2">
                 <div class="auto">
-                    <input class="form-control" type="text" placeholder="Año hasta...">
+                    <input class="form-control" type="text" placeholder="Año hasta..."
+                    [(ngModel)]="_aniohasta">
                 </div>
             </div>
             <div class="mb-2">
                 <div class="auto">
-                    <input class="form-control" type="text" placeholder="Empresa...">
+                    <input class="form-control" type="text" placeholder="Empresa..."
+                    [(ngModel)]="_empresa">
                 </div>
             </div>
             <div class="mb-2">
                 <div class="auto">
-                    <textarea class="form-control" type="textarea" placeholder="Experiencia..." row="3"></textarea>
+                    <textarea class="form-control" type="textarea" placeholder="Experiencia..." row="3" [(ngModel)]="_detalle"></textarea>
                 </div>
             </div>
             <br>
@@ -32,23 +35,39 @@
         </div> 
     </div>
 </div>
-<div class="container">
+<div class="Container">
     <div class="row">
         <div class="col-12">
-            <h4 class="tituloSeccion">Experiencia:</h4>
+            <h4 class="tituloSeccion animated bounceInRight">Experiencia:
+                <i *ngIf="exp_modo=='editar'" class="fas fa-pen" style="padding-left: 80%; cursor:pointer;" (click)="divcreacion()">
+                    Nuevo:
+                    <mat-slide-toggle style="margin-left: 5px;"></mat-slide-toggle>
+                </i>   
+            </h4>
         </div>
     </div>
-    <div class="row lineaseccion">
-        <div class="col-4">
-            <h5><i class="fas fa-calendar-check">  Periodo:</i> año desde - año hasta</h5>
-        </div>
-        <div class="col-6">
-            <h5 style="text-decoration:underline; font-weight: bold;"><i class="fas fa-industry"></i>  Empresa:</h5>
-            <p>detalle experiencia...</p> 
-        </div>
-        <div class="col-2" *ngIf="exp_modo=='editar'">
-                <i class="fas fa-edit fondoEditarBorrar" style="margin-right: 10px;" (click)="mostrarmodal()">editar</i>
-                <i class="fas fa-eraser fondoEditarBorrar" (click)="borrarExperiencia()">borrar</i>
+    <div class="row">
+        <div class="col-12" *ngIf="exp_modo=='editar'">
+            <app-add-experiencia
+                (onCreateExperiencia)="crearexperiencia($event)" 
+                *ngIf="modocreacion">
+            </app-add-experiencia>
         </div>
     </div>
+    <div *ngIf="exp.length > 0; else nohayregistros">
+        <div class="row lineaseccion cuadradito" *ngFor="let e of exp">
+            <div class="col-4">
+                <h5><i class="fas fa-calendar-check">  Periodo:</i> {{e.aniodesde}} - {{e.aniohasta}}</h5>
+            </div>
+            <div class="col-6">
+                <h5 style="text-decoration:underline; font-weight: bold;"><i class="fas fa-industry"></i>  Empresa: {{e.empresa}}</h5>
+                <p>{{e.detalle}}</p> 
+            </div>
+            <div class="col-2" *ngIf="exp_modo=='editar'">
+                    <i class="fas fa-edit fondoEditarBorrar" style="margin-right: 10px;" (click)="seleccionarExperiencia(e.id)">editar</i>
+                    <i class="fas fa-eraser fondoEditarBorrar" (click)="borrarExperiencia(e.id)">borrar</i>
+            </div>
+        </div>
+    </div>
+    <ng-template #nohayregistros><p style="color:red">No hay registros de experiencias</p></ng-template>
 </div>

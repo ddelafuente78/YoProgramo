@@ -1,26 +1,30 @@
 <div id="EducModal" class="modalContainer">
     <div class="modal-content">
         <span class="close" (click)="ocultarmodal()">x</span> 
-        <h2>Modificar educacion...</h2>
+        <h2>Modificar educacion...( {{_idEduc}} ) </h2>
         <div class="container-fluid">
             <div class="mb-2">
                 <div class="auto">
-                    <input class="form-control" type="text" placeholder="Año desde...">
+                    <input class="form-control" type="text" placeholder="Año desde..."
+                    [(ngModel)]="_aniodesde">
                 </div>
             </div>
             <div class="mb-2">
                 <div class="auto">
-                    <input class="form-control" type="text" placeholder="Año hasta...">
+                    <input class="form-control" type="text" placeholder="Año hasta..."
+                    [(ngModel)]="_aniohasta">
                 </div>
             </div>
             <div class="mb-2">
                 <div class="auto">
-                    <input class="form-control" type="text" placeholder="Insitucion...">
+                    <input class="form-control" type="text" placeholder="Insitucion..."
+                    [(ngModel)]="_institucion">
                 </div>
             </div>
             <div class="mb-2">
                 <div class="auto">
-                    <textarea class="form-control" type="textarea" placeholder="Detalle..." row="3"></textarea>
+                    <textarea class="form-control" type="textarea" placeholder="Detalle..." row="3"
+                    [(ngModel)]="_detalle"></textarea>
                 </div>
             </div>
             <br>
@@ -35,21 +39,37 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h4 class="tituloSeccion">Educacion:</h4>
+            <h4 class="tituloSeccion animated bounceInRight">Educacion:
+                <i *ngIf="educ_modo=='editar'" class="fas fa-pen" style="padding-left: 80%; cursor:pointer;" (click)="divcreacion()">
+                    Nuevo:
+                    <mat-slide-toggle style="margin-left: 5px;"></mat-slide-toggle>
+                </i>
+            </h4>
         </div>
     </div>
-    <div class="row lineaseccion">
-        <div class="col-4">
-            <h5><i class="far fa-calendar-check">  Periodo:</i> año desde - año hasta</h5>
-        </div>
-        <div class="col-6">
-            <h5 style="text-decoration:underline; font-weight: bold;"><i class="fas fa-school">  Institucion:</i></h5>
-            <p>detalle educacion...</p> 
-        </div>
-        <div class="col-2" *ngIf="educ_modo=='editar'">
-            <i class="fas fa-edit fondoEditarBorrar" style="margin-right: 10px;" (click)="mostrarmodal()">editar</i>
-            <i class="fas fa-eraser fondoEditarBorrar" (click)="borrarEducacion()">borrar</i>
+    <div class="row">
+        <div class="col-12" *ngIf="educ_modo=='editar'">
+            <app-add-educacion
+                (onCreateEducacion)="creareducacion($event)" 
+                *ngIf="modocreacion">
+            </app-add-educacion>
         </div>
     </div>
+    <div *ngIf="educ.length > 0; else nohayregistros">
+        <div class="row lineaseccion" *ngFor="let e of educ">
+            <div class="col-4">
+                <h5><i class="far fa-calendar-check">  Periodo:</i> {{e.aniodesde}} - {{e.aniohasta}} </h5>
+            </div>
+            <div class="col-6">
+                <h5 style="text-decoration:underline; font-weight: bold;"><i class="fas fa-school">  Institucion: {{e.institucion}} </i></h5>
+                <p> {{e.detalle}} </p> 
+            </div>
+            <div class="col-2" *ngIf="educ_modo=='editar'">
+                <i class="fas fa-edit fondoEditarBorrar" style="margin-right: 10px;" (click)="seleccionarEducacion(e.id)">editar</i>
+                <i class="fas fa-eraser fondoEditarBorrar" (click)="borrarEducacion(e.id)">borrar</i>
+            </div>
+        </div>
+    </div>
+    <ng-template #nohayregistros><p style="color:red">No hay registros de educacion</p></ng-template>
 </div>
 

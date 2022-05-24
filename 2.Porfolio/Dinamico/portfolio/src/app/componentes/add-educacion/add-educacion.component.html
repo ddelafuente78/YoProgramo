@@ -1,0 +1,21 @@
+<form class="add-form" (ngSubmit)=" agregarEducacion()">
+    <div style="background-color:beige;" class="form-control">
+        <div>
+            <label for="aniodesde">Año desde: </label>
+            <input [(ngModel)]="_aniodesde" 
+                type="text" name="aniodesde" id="aniodesde"/>
+            <label for="aniohasta">Año hasta: </label>
+            <input [(ngModel)]="_aniohasta" 
+                type="text" name="aniohasta" id="aniohasta"/>
+            <label for="institucion">Institucion: </label>
+            <input [(ngModel)]="_institucion" 
+                type="text" name="empresa" id="empresa"/>
+            
+            <input style="margin-left: 30%;" type="submit" class="btn" value="guardar">
+        </div>
+        <div>
+            <textarea [(ngModel)]="_detalle"
+                name="detalle" id="detalle" placeholder="detalle"></textarea>
+        </div>
+    </div>
+</form>
