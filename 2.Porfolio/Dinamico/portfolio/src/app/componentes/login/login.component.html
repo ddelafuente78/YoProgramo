@@ -1,20 +1,42 @@
 <div class="login">
-    <form class="custom-form" method="post">
-      <h1>Login</h1>
-      <input
-        type="email"
-        [(ngModel)]="email"
+  <form [formGroup]="form" class="custom-form" (ngSubmit)="onLogin($event)">
+    <h1>Iniciar sesion</h1>
+    <input type="email"
         name="email"
         placeholder="Email"
         required="required"
+        formControlName="email"
+        [ngClass]="{'is-invalid':email?.errors && email?.touched, 'is-valid': !email?.errors && email?.touched}"
+        class="form-control"
       />
+      <div *ngIf="email?.errors && email?.touched">
+        <p *ngIf="email?.hasError('required')" class='text-danger'>
+          El email es requerido.
+        </p>
+        <p *ngIf="email?.hasError('email')" class="text-danger">
+          El formato del mail debe ser valido.
+        </p>
+      </div>
       <input
         type="password"
-        [(ngModel)]="password"
         name="password"
         placeholder="Password"
         required="required"
+        formControlName="password"
+        [ngClass]="{'is-invalid':email?.errors && email?.touched, 'is-valid': !email?.errors && email?.touched}"
+        class="form-control"
       />
-      <button type="submit" (click)="login()">Log in</button>
+      <div *ngIf="password?.errors && password?.touched">
+        <p *ngIf="password?.hasError('required')" class='text-danger'>
+          La password es requerida.
+        </p>
+         <p *ngIf="password?.hasError('minlength')" class="text-danger">
+          La contraseña debe ser de 8 o mas caracteres.
+        </p> 
+      </div>
+      <button type="submit">Log in</button>
+      <div *ngIf="credencialesincorrectas" class="form-control is-invalid text-danger">
+        Usuario y/o contraseña incorrecta !!!
+      </div>
     </form>
   </div>

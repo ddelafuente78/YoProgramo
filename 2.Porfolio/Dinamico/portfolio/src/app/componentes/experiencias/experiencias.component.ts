@@ -37,7 +37,7 @@ export class ExperienciasComponent implements OnInit {
   }
 
   ocultarmodal(){
-    var elemento = document.getElementById("SkillModal");
+    var elemento = document.getElementById("ExpModal");
     if (elemento != null) {
       elemento.style.display = 'none';
     }
@@ -72,7 +72,6 @@ export class ExperienciasComponent implements OnInit {
       console.log(rsta);
       this.ngOnInit();
     });
-    //window.location.reload();
   }
 
   seleccionarExperiencia(id?: number){

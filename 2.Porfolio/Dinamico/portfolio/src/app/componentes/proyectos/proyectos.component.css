@@ -23,7 +23,7 @@
     height: 100%;
     text-align: center;
     transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+    transition: transform 2s cubic-bezier(0.75, 0, 0.85, 1);
   }
   
   .micard h3, micard p {
@@ -65,14 +65,16 @@
   }
   
   .dorso {
-    background-color: #8cffa5;
-    color: #faebd7;
+    background-color: rgb(158, 243, 145);
+    color: green;
     /*transform: rotateX(180deg);*/
     transform: rotateY(180deg);
     text-align:center;
+    margin-top: 20%;
   }
   
   .dorso p {
+    color:white;
     font-size:medium;
   }
   

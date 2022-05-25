@@ -5,9 +5,7 @@ import { Observable, of } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-type':'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Vary': 'Origin'
+    'Content-type':'application/json'
   })
 }
 

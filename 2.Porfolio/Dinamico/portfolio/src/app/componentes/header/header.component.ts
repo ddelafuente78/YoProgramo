@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PersonaService } from 'src/app/Servicios/persona.service';
 import { IPersona } from 'src/app/Servicios/Interfaces/IPersona';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -22,10 +23,10 @@ export class HeaderComponent implements OnInit {
   @Output() idPersona = new EventEmitter();
   modovis:string='Editar';
 
-  constructor(private personaService: PersonaService) { }
+  constructor(private personaService: PersonaService, private rutas:Router) { }
 
   ngOnInit() {
-    this.p = {bannerimg:"banner.webp", foto:"foto.jpg", nombre:"Nombre", apellido:"Apellido", acercade:"Acerca de"};
+    this.p = {bannerimg:"banner.webp", foto:"foto.jpg", nombre:"Nombre", apellido:"Apellido", acercade:"Acerca de..."};
     
     this.personaService.createPersona(this.p).subscribe(rsta => {console.log(rsta);});
 
@@ -88,5 +89,9 @@ export class HeaderComponent implements OnInit {
     };
     this.editarPersona(this.p);
     this.ocultarmodal();
+  }
+
+  salir(){
+    this.rutas.navigate(['/login']);
   }
 }

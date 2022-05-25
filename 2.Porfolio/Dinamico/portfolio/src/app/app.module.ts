@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgChartsModule } from 'ng2-charts';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Servicios
 import {CargarscriptService} from './Servicios/cargarscript.service';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatGridListModule} from '@angular/material/grid-list';
 import { LoginComponent } from './componentes/login/login.component';
 import { PrincipalComponent } from './componentes/principal/principal.component'
+import { InterceptorService } from './Servicios/interceptor.service';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
     AddskillComponent,
     LoginComponent,
     PrincipalComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,10 +54,12 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
     FormsModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    ReactiveFormsModule
   ],
   providers: [
-    CargarscriptService
+    CargarscriptService,
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
   ],
   bootstrap: [AppComponent]
 })

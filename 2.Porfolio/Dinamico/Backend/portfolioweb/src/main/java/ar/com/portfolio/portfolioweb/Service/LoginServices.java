@@ -27,4 +27,13 @@ public class LoginServices implements ILoginServices {
             return result.get(0);
         return null;
     }
+
+    @Override
+    public void crearLogin(Login login) { loginRepository.save(login);}
+
+    @Override
+    public void borrarLogin(Long id){loginRepository.deleteById(id);}
+
+    @Override
+    public List<Login> getLogins(){ return loginRepository.findAll();}
 }
