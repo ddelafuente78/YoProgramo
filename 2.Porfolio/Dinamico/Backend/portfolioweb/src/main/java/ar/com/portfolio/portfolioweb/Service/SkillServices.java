@@ -50,7 +50,7 @@ public class SkillServices implements ISkillServices {
         skillcategoriaxtipo = TypeFilter(issoft, skillcategoriaxtipo);
 
         Predicate<Skill> byCategories = skill -> (skill.getCategoria().equals(categoria));
-        var result = skillcategoriaxtipo.stream().filter(byCategories).collect(Collectors.toList());
+        List<Skill> result = skillcategoriaxtipo.stream().filter(byCategories).collect(Collectors.toList());
 
         return result;
     }

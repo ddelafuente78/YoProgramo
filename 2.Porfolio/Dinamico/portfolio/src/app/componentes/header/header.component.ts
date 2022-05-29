@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
     this.personaService.getPersonas().subscribe(datospersona => {
       this._id = datospersona[0].id;
       this._acercade = datospersona[0].acercade;
-      this._apellido = datospersona[0].apellido;
+      this._apellido = datospersona[0].apellido + ',';
       this._bannerimg = datospersona[0].bannerimg;
       this._foto = datospersona[0].foto;
       this._nombre = datospersona[0].nombre;

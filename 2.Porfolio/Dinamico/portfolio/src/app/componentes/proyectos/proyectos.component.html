@@ -58,30 +58,32 @@
     </div>
     <hr>
     <div class="row">
-        <mat-grid-list cols="3" rowHeight="2:1" [gutterSize]="'20px'">
-            <mat-grid-tile *ngFor="let p of proy">
-                <div class="col-md flip-container">
-                    <div class="card micard text-center fondocards">
-                        <div class="frente">
-                            <div class="card-body">
-                                <h4 class="card-title resaltador"><i class="fas fa-brain">  {{p.nombre}} </i></h4>
-                                <hr>
-                                <p class="card-text">{{p.descripcion}} </p>
-                                <p class="card-text">{{p.aniodesde}} a {{p.aniohasta}}</p>
-                                <div *ngIf="pry_modo=='editar'">
-                                    <i class="fas fa-edit" style="cursor: pointer; margin-right: 10px; font-size: 20px" (click)="seleccionarProyecto(p.id)"></i>
-                                    <i class="fas fa-eraser" style="cursor: pointer; font-size: 20px" (click)="borrarProyecto(p.id)"></i>
+        <div *ngIf="proy.length > 0; else nohayregistros"></div>
+            <mat-grid-list cols="3" rowHeight="2:1" [gutterSize]="'20px'">
+                <mat-grid-tile *ngFor="let p of proy">
+                    <div class="col-md flip-container">
+                        <div class="card micard text-center fondocards">
+                            <div class="frente">
+                                <div class="card-body">
+                                    <h4 class="card-title resaltador"><i class="fas fa-brain">  {{p.nombre}} </i></h4>
+                                    <hr>
+                                    <p class="card-text">{{p.descripcion}} </p>
+                                    <p class="card-text">{{p.aniodesde}} a {{p.aniohasta}}</p>
+                                    <div *ngIf="pry_modo=='editar'">
+                                        <i class="fas fa-edit" style="cursor: pointer; margin-right: 10px; font-size: 20px" (click)="seleccionarProyecto(p.id)"></i>
+                                        <i class="fas fa-eraser" style="cursor: pointer; font-size: 20px" (click)="borrarProyecto(p.id)"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="dorso">
-                            <p>>_ Argentina programa.</p>
-                            <p>#YoProgramo</p>
+                            <div class="dorso">
+                                <p>>_ Argentina programa.</p>
+                                <p>#YoProgramo</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
+                </mat-grid-tile>
+            </mat-grid-list>
+        <ng-template #nohayregistros><p style="color:red">No hay registros de Soft Skill</p></ng-template>
     </div>
 </div>
 

@@ -15,7 +15,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProyectoService {
-  private apiURL = 'http://localhost:8080/api/v1/proyecto'
+  //private apiURL = 'http://localhost:8080/api/v1/proyecto';
+  private apiURL = 'http://portfoliodelafuente.herokuapp.com/api/v1/proyecto';
 
   constructor(private http: HttpClient) { }
 

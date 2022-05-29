@@ -5,7 +5,8 @@ import { Observable, of } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-type':'application/json'
+    'Content-type':'application/json',
+    'Access-Control-Allow-Origin': '*'
   })
 }
 
@@ -14,7 +15,8 @@ const httpOptions = {
 })
 
 export class EducacionService {
-  private apiURL = 'http://localhost:8080/api/v1/educacion'
+  //private apiURL = 'http://localhost:8080/api/v1/educacion'
+  private apiURL = 'https://portfoliodelafuente.herokuapp.com/api/v1/educacion'
 
   constructor(private http: HttpClient) { }
 

@@ -14,7 +14,8 @@ const httpOptions = {
 })
 export class SkillsService {
 
-  private apiURL = 'http://localhost:8080/api/v1/skill'
+  //private apiURL = 'http://localhost:8080/api/v1/skill';
+  private apiURL = 'http://portfoliodelafuente.herokuapp.com/api/v1/skill';
 
   constructor(private http: HttpClient) { }
 

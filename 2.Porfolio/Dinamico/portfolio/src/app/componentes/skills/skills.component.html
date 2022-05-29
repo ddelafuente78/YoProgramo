@@ -88,41 +88,47 @@
             <h1><i class="fas fa-code"></i> Hard skills:</h1>
         </div>
     </div>
-    <div class="row">
-        <mat-grid-list cols="3" gutterSize="10px">
-            <mat-grid-tile *ngFor="let hc of individualHardCat">
-                <app-donutchart
-                    #skill  
-                    donut_modo="{{skill_modo}}" 
-                    [entryskills]="hardcat" 
-                    [isSoft]="false" 
-                    categoria="{{hc}}" 
-                    [labels]="getlabelForHardCategories(hc)" 
-                    [datos]="getDataForHardCategories(hc)"
-                >   
-                </app-donutchart>
-            </mat-grid-tile>
-        </mat-grid-list>
+    <div *ngIf="individualHardCat.length > 0; else nohayregistroshard">
+        <div class="row">
+            <mat-grid-list cols="3" gutterSize="10px">
+                <mat-grid-tile *ngFor="let hc of individualHardCat">
+                    <app-donutchart
+                        #skill  
+                        donut_modo="{{skill_modo}}" 
+                        [entryskills]="hardcat" 
+                        [isSoft]="false" 
+                        categoria="{{hc}}" 
+                        [labels]="getlabelForHardCategories(hc)" 
+                        [datos]="getDataForHardCategories(hc)"
+                    >   
+                    </app-donutchart>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
     </div>
+    <ng-template #nohayregistroshard><p style="color:red">No hay registros de Hard Skill</p></ng-template>
     <hr>
     <div class="row focus-in-expand">
         <div class="col-12">
             <h1><i class="far fa-user-circle"></i>  Soft skill:</h1>
         </div>
     </div>
-    <div class="row">
-        <mat-grid-list cols="3" gutterSize="10px">
-            <mat-grid-tile *ngFor="let sc of individualSoftCat">             
-                <app-donutchart
-                    #skill 
-                    donut_modo="{{skill_modo}}" 
-                    [entryskills]="getSoftCat()" 
-                    [isSoft]="true"  categoria="{{sc}}" 
-                    [labels]="getlabelForSoftCategories(sc)" 
-                    [datos]="getDataForSoftCategories(sc)"
-                >
-                </app-donutchart>
-            </mat-grid-tile>
-        </mat-grid-list>
+    <div *ngIf="individualSoftCat.length > 0; else nohayregistrossoft">
+        <div class="row">
+            <mat-grid-list cols="3" gutterSize="10px">
+                <mat-grid-tile *ngFor="let sc of individualSoftCat">             
+                    <app-donutchart
+                        #skill 
+                        donut_modo="{{skill_modo}}" 
+                        [entryskills]="getSoftCat()" 
+                        [isSoft]="true"  categoria="{{sc}}" 
+                        [labels]="getlabelForSoftCategories(sc)" 
+                        [datos]="getDataForSoftCategories(sc)"
+                    >
+                    </app-donutchart>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
     </div>
+    <ng-template #nohayregistrossoft><p style="color:red">No hay registros de Soft Skill</p></ng-template>
 </div>

@@ -35,18 +35,19 @@ public class LoginController {
         return interlogin.getLogins();
     }
 
+    @DeleteMapping("/auth/borrar/{id}")
+    public String deleteLogin(@PathVariable Long id){
+        interlogin.borrarLogin(id);
+        return "{\"rpta\":\"Se borro el Login\"}";
+    }
+
     @PostMapping("/auth/crear")
     public String createLogin(@RequestBody Login login){
-        if(login.getPassword().length() < 8){
+        if (login.getPassword().length() < 8) {
             return "{\"rpta\":\"La contraseña debe ser igual o mayor a 8 caracteres\"}";
         }
         interlogin.crearLogin(login);
         return "{\"rpta\":\"Se creo el login de usuario\"}";
     }
 
-    @DeleteMapping("/auth/borrar/{id}")
-    public String deleteLogin(@PathVariable Long id){
-        interlogin.borrarLogin(id);
-        return "{\"rpta\":\"Se borro el Login\"}";
-    }
 }

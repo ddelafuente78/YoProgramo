@@ -1,14 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {map} from 'rxjs/operators'
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-type':'application/json',
+    'Access-Control-Allow-Headers':'Content-Type',
+    'Access-Control-Allow-Origin': 'https://delafuenteportfolio.herokuapp.com/',
+    'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacionService {
 
-  private apiURL = 'http://localhost:8080/api/v1/auth/login'
+  //private apiURL = 'http://localhost:8080/api/v1/auth/login';
+  private apiURL = 'https://portfoliodelafuente.herokuapp.com/api/v1/auth/login';
 
   currentsubject: BehaviorSubject<any>;
   constructor(private http:HttpClient) {
@@ -16,7 +26,7 @@ export class AutenticacionService {
    }
 
    login(credenciales: any): Observable<any>{
-    return this.http.post(this.apiURL, credenciales).pipe(
+    return this.http.post(this.apiURL, credenciales, httpOptions).pipe(
       map(rsta => {
         sessionStorage.setItem('currentuser',JSON.stringify(rsta));
         this.currentsubject.next(rsta);
