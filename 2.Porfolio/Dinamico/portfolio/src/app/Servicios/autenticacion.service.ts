@@ -6,9 +6,9 @@ import {map} from 'rxjs/operators'
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-type':'application/json',
-    'Access-Control-Allow-Headers':'Content-Type',
-    'Access-Control-Allow-Origin': 'https://delafuenteportfolio.herokuapp.com/',
-    'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+    'Access-Control-Request-Headers':'Content-Type, Authorization',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Request-Methods': 'OPTIONS,POST,GET'
   })
 }
 
@@ -26,7 +26,7 @@ export class AutenticacionService {
    }
 
    login(credenciales: any): Observable<any>{
-    return this.http.post(this.apiURL, credenciales, httpOptions).pipe(
+    return this.http.post(this.apiURL, credenciales).pipe(
       map(rsta => {
         sessionStorage.setItem('currentuser',JSON.stringify(rsta));
         this.currentsubject.next(rsta);

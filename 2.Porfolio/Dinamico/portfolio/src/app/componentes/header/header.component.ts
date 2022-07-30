@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PersonaService } from 'src/app/Servicios/persona.service';
 import { IPersona } from 'src/app/Servicios/Interfaces/IPersona';
 import { Router } from '@angular/router';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +24,11 @@ export class HeaderComponent implements OnInit {
   @Output() idPersona = new EventEmitter();
   modovis:string='Editar';
 
-  constructor(private personaService: PersonaService, private rutas:Router) { }
+  fileToUpload: File | null = null;
+
+  constructor(private personaService: PersonaService, private rutas:Router, private http: HttpClient) { }
+
+  fileName = '';
 
   ngOnInit() {
     this.p = {bannerimg:"banner.webp", foto:"foto.jpg", nombre:"Nombre", apellido:"Apellido", acercade:"Acerca de..."};
@@ -94,4 +99,37 @@ export class HeaderComponent implements OnInit {
   salir(){
     this.rutas.navigate(['/login']);
   }
+
+  /*
+  TODO: Codigo asociados a las etiquetas input files para realizar el upload de imagenes de manera dinamica
+  lo cual no se ha encontrado por el momento solucion el upload a la carpeta assets/imagenes 
+
+  onFileChange(event:any) {
+
+    const selectedFile: File = event.target.files[0];
+    
+    const fd = new FormData();
+
+    console.log("on file event");
+
+    fd.append('image', selectedFile, selectedFile.name);
+
+    
+    const req = new HttpRequest('POST', 'http://localhost:4200/portfolio/assets/imagenes/', fd, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.http.request(req);
+    
+
+    this.http.post("../../assets/imagenes/", selectedFile)
+      .subscribe(
+        (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err)
+      });
+  } 
+  */
 }

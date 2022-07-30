@@ -5,13 +5,13 @@ import ar.com.portfolio.portfolioweb.Service.ILoginServices;
 import ar.com.portfolio.portfolioweb.Utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-
-@RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "*")
+@RestController
 public class LoginController {
 
     @Autowired

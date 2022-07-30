@@ -3,6 +3,20 @@
         <span class="close" (click)="ocultarmodal()">x</span> 
         <h2>Modificar encabezado...</h2>
         <div class="container-fluid">
+            <!--
+            TODO: etiquetas asociada a File input preparadas para subir archivos de imagenes de manera dinamica.
+                  No se ha podido por el momento detectar la forma de subir archivo a la carpeta assets/imatenes
+            <div class="mb-2">
+                <div class="auto">
+                    Banner: <input class="form-control" type="file"/>
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="auto">
+                        Foto: <input class="form-control file-upload" type="file" accept="image/*" (change)="onFileChange($event)"/>
+                </div>
+            </div>
+             -->
             <div class="mb-2">
                 <div class="auto">
                     <input class="form-control" type="text" placeholder="Imagen banner..." [(ngModel)]="_bannerimg"/>
