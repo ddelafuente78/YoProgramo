@@ -16,7 +16,7 @@ const httpOptions = {
 export class PersonaService {
   
   //private apiURL = 'http://localhost:8080/api/v1/persona';
-  private apiURL = 'http://portfoliodelafuente.herokuapp.com/api/v1/persona';
+  private apiURL = 'http://delafuenteportfolio.herokuapp.com/api/v1/persona';
 
   constructor(private http: HttpClient) {  } 
     

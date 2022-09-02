@@ -18,7 +18,7 @@ const httpOptions = {
 export class AutenticacionService {
 
   //private apiURL = 'http://localhost:8080/api/v1/auth/login';
-  private apiURL = 'https://portfoliodelafuente.herokuapp.com/api/v1/auth/login';
+  private apiURL = 'https://delafuenteportfolio.herokuapp.com/api/v1/auth/login';
 
   currentsubject: BehaviorSubject<any>;
   constructor(private http:HttpClient) {

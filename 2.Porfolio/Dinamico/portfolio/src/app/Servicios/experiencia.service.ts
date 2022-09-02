@@ -17,7 +17,7 @@ const httpOptions = {
 export class ExperienciaService {
 
   //private apiURL = 'http://localhost:8080/api/v1/experiencia'
-  private apiURL = 'http://portfoliodelafuente.herokuapp.com/api/v1/experiencia'
+  private apiURL = 'http://delafuenteportfolio.herokuapp.com/api/v1/experiencia'
 
   constructor(private http: HttpClient) { }
 
